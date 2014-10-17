@@ -1,0 +1,23 @@
+body
+{
+ 	font-family:arial;
+	font-size: 8pt;
+}
+
+p, input
+{
+ 	font-family:arial;
+	font-size: 10pt;
+}
+textarea {font-family:arial;font-size:14px;}
+label {display:block;color:#004a9b;font-size:14px;padding:20px 0 5px 0;}
+.hidden {display:none;}
+
+.left {float:left;color:#5d5e60;font-size: 14px;}
+.left a {color:#5186b8;text-decoration:none;}
+
+ul {margin:0 0 0 30px;padding:0;overflow:hidden;}
+ul li {padding:3px;}
+.dEdit {margin:0 0 0 30px;display:none;}
+
+.error {color: red;}
