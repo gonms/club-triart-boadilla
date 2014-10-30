@@ -24,11 +24,6 @@
                 <p>Ha obtenido varios premios coreográficos como el Premios Especial del Jurado, del Maraton de Danza de Madrid 2008.</p>
             </li>
             <li>
-                <p><strong>María Frade Carrasco</strong>, monitora de gimnasia rítmica, de yoga y pilates en diversos municipios del noroeste de la Comunidad de Madrid.</p>
-                <p>Participante del Campeonato de España de Gimnasia Estética 2012, categoría senior y participante y medallista a nivel nacional en gimnasia rítmica durante once años.</p>
-                <p>Licenciada en Periodismo, Publicidad y RRPP.</p>
-            </li>
-            <li>
                 <p><strong>Nagore Romero Torres</strong>, profesora Ciencias de la Actividad Física y del Deporte de la Universidad Europea de Madrid, en las asignaturas de entrenamiento y nutrición para la danza.</p>
                 <p>Licenciada en INEF y grado superior en Pedagogía de la Danza, en la escuela Alicia Alonso, adscrita a la Universidad Rey Juan Carlos, con Máster en Artes Escénicas y de Entrenamiento y Nutrición Deportiva.</p>
                 <p>Entrenadora Nacional de Gimnasia Rítmica por la Federación de esta modalidad deportiva. Entrenadora Nacional de Gimnasia Estética por la Asociación AEGEG.</p>
