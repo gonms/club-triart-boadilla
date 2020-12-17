@@ -1,29 +1,29 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2014-06-16 11:52:46
+<?php /* Smarty version Smarty-3.1.15, created on 2018-02-07 09:34:58
          compiled from "../templates/noticias.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:19270602652a311cf122df2-06325259%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:11958170935a7ac842589d74-35974530%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '00174362a5721db6782e13a11f62fab9908b8b83' => 
     array (
       0 => '../templates/noticias.tpl',
-      1 => 1402944760,
+      1 => 1517930174,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '19270602652a311cf122df2-06325259',
+  'nocache_hash' => '11958170935a7ac842589d74-35974530',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_52a311cf2d36e7_65808463',
   'variables' => 
   array (
     'noticias' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5a7ac8425aaf49_32117610',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_52a311cf2d36e7_65808463')) {function content_52a311cf2d36e7_65808463($_smarty_tpl) {?><ul class="noticias">
+<?php if ($_valid && !is_callable('content_5a7ac8425aaf49_32117610')) {function content_5a7ac8425aaf49_32117610($_smarty_tpl) {?><ul class="noticias">
 <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['noticia'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['noticia']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['noticia']['name'] = 'noticia';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['noticia']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['noticias']->value) ? count($_loop) : max(0, (int) $_loop); unset($_loop);

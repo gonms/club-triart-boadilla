@@ -1,5 +1,4 @@
-AuthName "Restricted Area" 
+AuthName "Gestor Triart" 
 AuthType Basic 
-AuthUserFile /home/gonhosting/clubtriartboadilla.com/gestor/.htpasswd 
-AuthGroupFile /dev/null 
+AuthUserFile /var/www/clubtriartboadilla.com/public_html/gestor/.htpasswd 
 require valid-user

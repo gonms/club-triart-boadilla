@@ -2,8 +2,8 @@
     include_once("../../funciones.inc.php");
     
     $sql = "SELECT * FROM calendario ORDER BY fecha DESC";
-    $res = mysql_query($sql);
-    while ($row = mysql_fetch_array($res))
+    $res = $conn->query($sql);
+    while ($row = $res->fetch_array())
     {
         $html .= '  <li class="ui-state-default" id="' . $row['id'] . '">
                         <div class="left" style="width:70%;">
@@ -18,7 +18,7 @@
                     </li>';
     }
     
-    mysql_close($conn);
+    $conn->close();
     
     echo $html;
 ?>

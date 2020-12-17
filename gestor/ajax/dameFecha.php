@@ -2,15 +2,15 @@
     include_once("../../funciones.inc.php");
     
     $sql = "SELECT * FROM calendario WHERE id = '" . $_GET['id'] . "'";
-    $res = mysql_query($sql);
-    if (mysql_num_rows($res) != 1)
+    $res = $conn->query($sql);
+    if ($res->num_rows != 1)
     {
         echo "KO";
     }
     else
     {
-        $row = mysql_fetch_array($res);
+        $row = $res->fetch_array();
         echo myToDate($row['fecha']) . "#" . $row['hora'] . "#" . utf8_encode($row['titulo']) . "#" . $row['id'];
     }
-    mysql_close($conn);
+    $conn->close();
 ?>

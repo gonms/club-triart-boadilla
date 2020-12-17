@@ -2,7 +2,7 @@
     include_once("../funciones.inc.php");
     $txtError = "";
     $output_dir = "./docs/";
-    
+
     if (!empty($_POST))
     {
         if ($_POST['n_accion'] == "nuevo")
@@ -37,16 +37,16 @@
     		}
             
             $sql = utf8_decode("INSERT INTO noticias (titulo,fecha,cuerpo" . $campo . ") VALUES ('" . $_POST['n_titulo'] . "','" . $_POST['n_fecha'] . "','" . $_POST['n_cuerpo'] . "'" . $valor . ");");
-            mysql_query($sql);
-            $nID = mysql_insert_id();
+            $conn->query($sql);
+            $nID = $conn->insert_id;
             $sql = utf8_decode("INSERT INTO noticias_orden (orden) VALUES ('" . $nID . "');");
-            mysql_query($sql);
+            $conn->query($sql);
         }
         else if ($_POST['n_accion'] == "modificar")
         {
             $sql = "SELECT documento, foto FROM noticias WHERE id = '" . $_POST['n_id'] . "'";
-            $res = mysql_query($sql);
-            $row = mysql_fetch_array($res);
+            $res = $conn->query($sql);
+            $row = $res->fetch_array();
             
             $sqlAdd = "";
             if(!empty($_FILES["n_documento"]["tmp_name"]))
@@ -80,7 +80,7 @@
     		}
             
             $sql = utf8_decode("UPDATE noticias SET titulo = '" . $_POST['n_titulo'] . "', fecha = '" . $_POST['n_fecha'] . "', cuerpo = '" . $_POST['n_cuerpo'] . "'" . $sqlAdd . " WHERE id = '" . $_POST['n_id'] . "';");
-            mysql_query($sql);
+            $conn->query($sql);
         }
     }
     mysql_close($conn);

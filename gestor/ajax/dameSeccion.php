@@ -2,12 +2,12 @@
 	include_once("../../funciones.inc.php");
     
     $sql = "SELECT * FROM " . $seccion . "_orden ORDER BY id";
-    $res = mysql_query($sql);
-    while($row = mysql_fetch_array($res))
+    $res = $conn->query($sql);
+    while($row = $res->fetch_array())
     {
         $grid .= '<li class="ui-state-default" id="' . $row['id'] . '">' . utf8_encode($row['titulo']) . '</li>';
     }
      
-    mysql_close($conn);
+    $conn->close();
     echo $grid;
 ?>

@@ -74,19 +74,19 @@ function calcula_numero_dia_semana($dia,$mes,$ano){
 } 
 
 $sql = "SELECT * FROM calendario WHERE fecha >= '" . $ano . "-" . $mes . "-01' and fecha <= '" . $ano . "-" . $mes . "-" . ultimoDia($mes,$ano) . "'";
-$res = mysql_query($sql);
+$res = $conn->query($sql);
 $aDias = array();
-while ($row = mysql_fetch_array($res))
+while ($row = $res->fetch_array())
 {
 	list($ano_evento,$mes_evento,$dia_evento) = explode("-",$row['fecha']);
 	$aDias[] = $dia_evento;
 	$aEventos[] = array(
-						"dia" => $dia_evento,
+						"dia" => intval($dia_evento),
 						"hora" => $row['hora'],
 						"titulo" => utf8_encode($row['titulo'])
 						);
 }
-mysql_close($conn);
+$conn->close();
 
 
 //tomo el nombre del mes que hay que imprimir

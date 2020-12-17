@@ -1,6 +1,7 @@
 <?php
-ini_set(display_errors,true);
-error_reporting(E_ALL);
+/*ini_set(display_errors,true);
+error_reporting(E_ALL);*/
+
 /* SMARTY SETUP */
 require('../smarty/Smarty.class.php');
 $smarty = new Smarty();
@@ -13,13 +14,13 @@ $smarty->setCacheDir('../cache/');
 include("../funciones.inc.php");
 
 $sql = "SELECT * FROM noticias_orden";
-$res = mysql_query($sql);
+$res = $conn->query($sql);
 $aNoticias = array();
-while ($row = mysql_fetch_array($res))
+while ($row = $res->fetch_array())
 {
 	$sql = "SELECT * FROM noticias WHERE id = '" . $row['orden'] . "'";
-	$resNoticias = mysql_query($sql);
-	$rowNoticia = mysql_fetch_array($resNoticias);
+	$resNoticias = $conn->query($sql);
+	$rowNoticia = $resNoticias->fetch_array();
 	$aNoticias[] = array(
 						"imagen" => $rowNoticia['foto'],
 						"fecha" => $rowNoticia['fecha'],
@@ -28,7 +29,7 @@ while ($row = mysql_fetch_array($res))
 						"documento" => $rowNoticia['documento']
 						);
 }
-mysql_close($conn);
+$conn->close();
 
 $smarty->assign("noticias", $aNoticias);
 

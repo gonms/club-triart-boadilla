@@ -2,12 +2,12 @@
     include_once("../../funciones.inc.php");
     
     $sql = "SELECT * FROM noticias_orden ORDER BY id";
-    $res = mysql_query($sql);
-    while ($row = mysql_fetch_array($res))
+    $res = $conn->query($sql);
+    while ($row = $res->fetch_array())
     {
         $sql = "SELECT * FROM noticias WHERE id = '" . $row['orden'] . "'";
-        $resNoticia = mysql_query($sql);
-        $rowNoticia = mysql_fetch_array($resNoticia);
+        $resNoticia = $conn->query($sql);
+        $rowNoticia = $resNoticia->fetch_array();
         $html .= '  <li class="ui-state-default" id="' . $rowNoticia['id'] . '">
                         <div class="left" style="width:70%;">
                             ' . utf8_encode($rowNoticia['titulo']) . '
@@ -21,7 +21,7 @@
                     </li>';
     }
     
-    mysql_close($conn);
+    $conn->close();
     
     echo $html;
 ?>

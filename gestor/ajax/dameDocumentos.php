@@ -2,12 +2,12 @@
     include_once("../../funciones.inc.php");
     
     $sql = "SELECT * FROM documentos_orden ORDER BY id";
-    $res = mysql_query($sql);
-    while ($row = mysql_fetch_array($res))
+    $res = $conn->query($sql);
+    while ($row = $res->fetch_array())
     {
         $sql = "SELECT * FROM documentos WHERE id = '" . $row['orden'] . "'";
-        $resDocumento = mysql_query($sql);
-        $rowDocumento = mysql_fetch_array($resDocumento);
+        $resDocumento = $conn->query($sql);
+        $rowDocumento = $resDocumento->fetch_array();
         $html .= '  <li class="ui-state-default" id="' . $rowDocumento['id'] . '">
                         <div class="left" style="width:70%;">
                             ' . utf8_encode($rowDocumento['titulo']) . '
@@ -21,7 +21,7 @@
                     </li>';
     }
     
-    mysql_close($conn);
+    $conn->close();
     
     echo $html;
 ?>

@@ -3,7 +3,7 @@
     
     $txtError = "";
     $output_dir = "./docs/";
-    
+
     if (!empty($_POST))
     {
         if ($_POST['d_accion'] == "nuevo")
@@ -19,10 +19,10 @@
                     move_uploaded_file($_FILES["d_file"]["tmp_name"],$output_dir.$_FILES["d_file"]["name"]);
                     
                     $sql = utf8_decode("INSERT INTO documentos (titulo, doc) VALUES ('" . $_POST['d_titulo'] . "','" . $_FILES["d_file"]["name"] . "');");
-                    mysql_query($sql);
-                    $nID = mysql_insert_id();
+                    $conn->query($sql);
+                    $nID = $conn->insert_id;
                     $sql = utf8_decode("INSERT INTO documentos_orden (orden) VALUES ('" . $nID . "');");
-                    mysql_query($sql);    		    
+                    $conn->query($sql);    		    
     			}
     		}
         }
@@ -31,8 +31,8 @@
             if(!empty($_FILES["d_file"]["name"]))
     		{
     			$sql = "SELECT doc FROM documentos WHERE id = '" . $_POST['d_id'] . "'";
-                $res = mysql_query($sql);
-                $row = mysql_fetch_array($res);
+                $res = $conn->query($sql);
+                $row = $res->fetch_array();
                 $file = $output_dir . $row['doc'];
                 $boolean = unlink($file);
                 if ($boolean)
@@ -55,10 +55,10 @@
             }
             
             $sql = utf8_decode("UPDATE documentos SET titulo = '" . $_POST['d_titulo'] . "'" . $sqlfile . " WHERE id = '" . $_POST['d_id'] . "';");
-            mysql_query($sql);
+            $conn->query($sql);
         }
     }
-    mysql_close($conn);
+    $conn->close();
     
     if ($txtError != "")
 	{

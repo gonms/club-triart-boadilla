@@ -6,13 +6,13 @@
         if ($_POST['c_accion'] == "nuevo")
         {
             $sql = utf8_decode("INSERT INTO calendario (titulo,fecha,hora) VALUES ('" . $_POST['c_titulo'] . "','" . dateToMy($_POST['c_fecha']) . "','" . $_POST['c_hora'] . "');");
-            mysql_query($sql);
+            $conn->query($sql);
             
         }
         else if ($_POST['c_accion'] == "modificar")
         {
             $sql = utf8_decode("UPDATE calendario SET titulo = '" . $_POST['c_titulo'] . "', fecha = '" . dateToMy($_POST['c_fecha']) . "', hora = '" . $_POST['c_hora'] . "' WHERE id = '" . $_POST['c_id'] . "';");
-            mysql_query($sql);
+            $conn->query($sql);
         }
     }
     mysql_close($conn);

@@ -11,6 +11,7 @@ html,body {
 table {
 	border-collapse:collapse;
 	border: 1px solid;
+	margin-bottom:20px;
 }
 fieldset,img { 
 	border:0;

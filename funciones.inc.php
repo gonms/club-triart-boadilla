@@ -1,7 +1,6 @@
 <?php
 error_reporting(0);
-	$conn = mysql_connect("localhost","root","CxzYD8ojX4");
-	mysql_select_db("triart",$conn);
+	$conn = new mysqli("localhost","root","CxzYD8ojX4","triart");
     
     function myToDate($f)
     {

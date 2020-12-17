@@ -1,6 +1,7 @@
 <?php
 ini_set(display_errors,true);
 error_reporting(E_ALL);
+
 /* SMARTY SETUP */
 require('../smarty/Smarty.class.php');
 $smarty = new Smarty();
@@ -13,19 +14,19 @@ $smarty->setCacheDir('../cache/');
 include("../funciones.inc.php");
 
 $sql = "SELECT * FROM documentos_orden";
-$res = mysql_query($sql);
+$res = $conn->query($sql);
 $aDocumentos = array();
-while ($row = mysql_fetch_array($res))
+while ($row = $res->fetch_array())
 {
 	$sql = "SELECT * FROM documentos WHERE id = '" . $row['orden'] . "'";
-	$resDocumentos = mysql_query($sql);
-	$rowDocumento = mysql_fetch_array($resDocumentos);
+	$resDocumentos = $conn->query($sql);
+	$rowDocumento = $resDocumentos->fetch_array();
 	$aDocumentos[] = array(
 						"titulo" => utf8_encode($rowDocumento['titulo']),
 						"documento" => $rowDocumento['doc']
 						);
 }
-mysql_close($conn);
+$conn->close();
 
 $smarty->assign("id", rand(1,3));
 $smarty->assign("documentos", $aDocumentos);
